@@ -11,9 +11,11 @@ import Route from './src/routes';
 import 'react-native-gesture-handler';
 
 const App = () => {
-  <NavigationContainer>
-    <Route />
-  </NavigationContainer>
+  return (
+    <NavigationContainer>
+      <Route />
+    </NavigationContainer>
+  )
 }
 
 export default App;
