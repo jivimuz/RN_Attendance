@@ -133,6 +133,14 @@ export const mainStyle = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 10,
     },
+    scheduleContainer2: {
+        height: 80,
+        width: 170,
+        backgroundColor: '#E0E0E0',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+    },
     iconContainer: {
         height: 80,
         width: 80,
@@ -166,7 +174,6 @@ export const mainStyle = StyleSheet.create({
     textSmall: {
         fontSize: 10,
         color: 'black',
-        fontWeight: 'bold'
     },
     textSmallWhite: {
         fontSize: 10,
@@ -236,7 +243,6 @@ export const mainStyle = StyleSheet.create({
     },
     header: {
         paddingVertical: 20,
-        paddingHorizontal: 20,
         flexDirection: 'row',
         justifyContent: 'space-between',
     },

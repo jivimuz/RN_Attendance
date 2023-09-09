@@ -1,13 +1,15 @@
 import { View, Text, ScrollView, ImageBackground, TouchableOpacity, RefreshControl, Image } from 'react-native'
 import React from 'react'
 import { colorPrimary, colorSecondary, colorSecondary2, mainStyle } from '../../Style/style';
-import HariIni from '../../Func/Hariini';
 import Jam from '../../Func/Jam';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import { BgPurple, Cepat, Cuti, Hadir, Terlambat } from '../../../assets';
-import { faBusinessTime, faUserClock, faUserInjured } from '@fortawesome/free-solid-svg-icons';
 import { Divider, Badge } from 'react-native-paper';
+import { HariIni } from '../../Func/Hariini';
+// import { faBusinessTime, faUserClock, faUserInjured, faBell } from '@fortawesome/free-brands-svg-icons';
+import { faBusinessTime, faUserClock, faUserInjured, faBell } from '@fortawesome/free-solid-svg-icons';
+
 const HomeScreen = ({ navigation }) => {
     const onRefresh = () => {
         navigation.replace('Home')
@@ -22,8 +24,10 @@ const HomeScreen = ({ navigation }) => {
                             {/* <Image source={Log} style={[mainStyle.logoSplash, { alignSelf: 'center' }]} /> */}
                             <Text></Text>
                         </View>
-                        <View style={{ flexDirection: 'row', position: 'relative' }}>
-                            <TouchableOpacity style={{ alignSelf: 'center' }} onPress={() => navigation.push('Notification')}>
+                        <View style={{ flexDirection: 'row', position: 'relative', marginRight: 20 }}>
+                            <TouchableOpacity style={{ alignSelf: 'center', marginBottom: 10 }} onPress={() => navigation.push('Notification')}>
+                                <FontAwesomeIcon icon={faBell} size={28} color='white' />
+                                <Badge style={{ marginTop: -30 }}>3</Badge>
                             </TouchableOpacity>
 
                         </View>
@@ -69,7 +73,7 @@ const HomeScreen = ({ navigation }) => {
                                         </View>
 
                                         <View style={{ marginTop: 20 }}>
-                                            <TouchableOpacity style={{ backgroundColor: 'gold', padding: 10, borderRadius: 30, ...mainStyle.shadow }}>
+                                            <TouchableOpacity style={{ backgroundColor: 'gold', padding: 10, borderRadius: 30, ...mainStyle.shadow }} onPress={() => navigation.push('Absensi')}>
                                                 <Text style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center', color: 'white' }}>Absensi</Text>
                                             </TouchableOpacity>
                                         </View>
@@ -155,15 +159,15 @@ const HomeScreen = ({ navigation }) => {
                         Izin
                     </Text>
                     <View style={{ marginHorizontal: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 10 }}>
-                        <View style={[mainStyle.iconContainer2, mainStyle.shadow, { marginBottom: 10 }]}>
+                        <TouchableOpacity style={[mainStyle.iconContainer2, mainStyle.shadow, { marginBottom: 10 }]}>
                             <FontAwesomeIcon icon={faUserClock} size={35} color={'white'} style={{ margin: 5 }} />
-                            <Text style={mainStyle.textSmallWhite}>Hadir</Text>
-                        </View>
+                            <Text style={mainStyle.textSmallWhite}>Cuti</Text>
+                        </TouchableOpacity>
 
-                        <View style={[mainStyle.iconContainer2, mainStyle.shadow, { marginBottom: 10 }]}>
+                        <TouchableOpacity style={[mainStyle.iconContainer2, mainStyle.shadow, { marginBottom: 10 }]}>
                             <FontAwesomeIcon icon={faUserInjured} size={35} color={'white'} style={{ margin: 5 }} />
                             <Text style={mainStyle.textSmallWhite}>Sakit</Text>
-                        </View>
+                        </TouchableOpacity>
 
                         <View style={[mainStyle.shadow, {
                             marginBottom: 10, height: 80, width: 160, backgroundColor: '#E0E0E0', justifyContent: 'center', alignItems: 'center', borderRadius: 10,

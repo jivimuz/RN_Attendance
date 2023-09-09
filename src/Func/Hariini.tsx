@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const HariIni = ({ warna }) => {
+export const HariIni = ({ warna }) => {
     const currentDate = new Date();
     const days = [
         'Minggu',
@@ -38,5 +38,29 @@ const HariIni = ({ warna }) => {
     );
 };
 
+export const TglHariIni = ({ warna }) => {
+    const currentDate = new Date();
+    const days = [
+        'Min',
+        'Senn',
+        'Sel',
+        'Rab',
+        'Kam',
+        'Jum',
+        'Sab',
+    ];
 
-export default HariIni;
+    const day = days[currentDate.getDay()];
+    const date = currentDate.getDate();
+    const month = currentDate.getMonth();
+    const year = currentDate.getFullYear();
+
+    return (
+        <Text style={{ color: warna }}>
+            {day}, {date}/{month}/{year}
+        </Text >
+    );
+};
+
+
+
