@@ -9,11 +9,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import React from 'react'
 import Route from './src/routes';
 import 'react-native-gesture-handler';
+import { PaperProvider } from 'react-native-paper';
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Route />
+      <PaperProvider>
+        <Route />
+      </PaperProvider>
     </NavigationContainer>
   )
 }

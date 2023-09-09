@@ -3,10 +3,9 @@ import React from 'react'
 import { colorPrimary, colorSecondary2, mainStyle, themeColors } from '../../Style/style'
 import { Login } from '../../../assets'
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: themeColors }}>
-            <StatusBar backgroundColor={themeColors} />
             <View style={{ padding: 40, justifyContent: 'center', alignItems: 'center' }}>
                 <Image source={Login} style={{ width: 200, height: 200, objectFit: 'contain' }} />
             </View>
@@ -21,10 +20,9 @@ const LoginScreen = () => {
                     <TouchableOpacity style={{ alignItems: 'flex-end', marginTop: 20 }}>
                         <Text style={{ color: 'grey', fontWeight: 'bold', }}>Lupa Password?</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ backgroundColor: colorPrimary, marginTop: 30, padding: 10, borderRadius: 30, ...mainStyle.shadow }}>
+                    <TouchableOpacity style={{ backgroundColor: colorPrimary, marginTop: 30, padding: 10, borderRadius: 30, ...mainStyle.shadow }} onPress={() => navigation.replace('Home')}>
                         <Text style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center' }}>Login</Text>
                     </TouchableOpacity>
-
                 </View>
             </View>
         </SafeAreaView >
