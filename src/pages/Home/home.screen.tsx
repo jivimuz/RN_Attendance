@@ -159,12 +159,12 @@ const HomeScreen = ({ navigation }) => {
                         Izin
                     </Text>
                     <View style={{ marginHorizontal: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 10 }}>
-                        <TouchableOpacity style={[mainStyle.iconContainer2, mainStyle.shadow, { marginBottom: 10 }]}>
+                        <TouchableOpacity style={[mainStyle.iconContainer2, mainStyle.shadow, { marginBottom: 10 }]} onPress={() => navigation.push('Cuti')}>
                             <FontAwesomeIcon icon={faUserClock} size={35} color={'white'} style={{ margin: 5 }} />
                             <Text style={mainStyle.textSmallWhite}>Cuti</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={[mainStyle.iconContainer2, mainStyle.shadow, { marginBottom: 10 }]}>
+                        <TouchableOpacity style={[mainStyle.iconContainer2, mainStyle.shadow, { marginBottom: 10 }]} onPress={() => navigation.push('Sakit')}>
                             <FontAwesomeIcon icon={faUserInjured} size={35} color={'white'} style={{ margin: 5 }} />
                             <Text style={mainStyle.textSmallWhite}>Sakit</Text>
                         </TouchableOpacity>
@@ -173,7 +173,7 @@ const HomeScreen = ({ navigation }) => {
                             marginBottom: 10, height: 80, width: 160, backgroundColor: '#E0E0E0', justifyContent: 'center', alignItems: 'center', borderRadius: 10,
                         }]}>
                             <Text style={{ fontSize: 35, color: colorPrimary, fontWeight: 'bold' }} >3</Text>
-                            <Text style={mainStyle.textSmall}>Jumlah Cuti</Text>
+                            <Text style={mainStyle.textSmall}>Jumlah Izin</Text>
                         </View>
 
                     </View>

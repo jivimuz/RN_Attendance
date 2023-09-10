@@ -328,6 +328,22 @@ export const mainStyle = StyleSheet.create({
         marginTop: -5,
         fontWeight: 'bold',
         fontSize: 30
+    },
+    fabMain: {
+        bottom: 50,
+        height: 0,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    fabIcon: {
+        height: 60,
+        width: 60,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: colorPrimary,
+        borderRadius: 50
+
     }
+
 })
 
