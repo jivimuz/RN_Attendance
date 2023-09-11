@@ -6,6 +6,7 @@ export const themeColors = 'rgb(142, 12, 175)'
 export const colorPrimary = 'rgb(142, 12, 175)'
 export const colorSecondary = 'rgb(243, 198, 255)'
 export const colorSecondary2 = 'rgb(250, 226, 255)'
+export const colorNegative = 'white'
 export const colorDanger = 'rgb(203, 20, 20)'
 export const colorSuccess = 'rgb(12, 152, 45)'
 export const colorWarning = 'rgb(255, 180, 51)'
@@ -36,7 +37,7 @@ export const mainStyle = StyleSheet.create({
         fontSize: 23
     },
     titleSection: {
-        marginHorizontal: 20,
+        marginLeft: 20,
         marginVertical: 10,
         fontWeight: "bold",
         fontSize: 18

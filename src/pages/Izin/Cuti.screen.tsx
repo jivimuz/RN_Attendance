@@ -1,8 +1,8 @@
 import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native'
 import React from 'react'
-import { colorPrimary, colorSecondary, mainStyle } from '../../Style/style'
+import { colorNegative, colorPrimary, colorSecondary, mainStyle } from '../../Style/style'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { faBuildingUser, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { Dummy } from '../../../assets'
 import { Divider } from 'react-native-paper'
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons'
@@ -12,7 +12,7 @@ const CutiScreen = ({ navigation }) => {
         <View style={{ flex: 1, backgroundColor: colorSecondary }}>
             <View style={mainStyle.header}>
                 <View style={{ flexDirection: 'row', position: 'relative', marginBottom: 5 }}>
-                    <TouchableOpacity style={{ alignSelf: 'center', backgroundColor: 'white', padding: 15, borderTopRightRadius: 30, borderBottomRightRadius: 30 }} onPress={() => navigation.pop()}>
+                    <TouchableOpacity style={{ alignSelf: 'center', backgroundColor: colorNegative, borderTopRightRadius: 30, padding: 15, borderBottomRightRadius: 30 }} onPress={() => navigation.pop()}>
                         <FontAwesomeIcon icon={faChevronLeft} />
                     </TouchableOpacity>
 
@@ -29,16 +29,19 @@ const CutiScreen = ({ navigation }) => {
                     <Image source={Dummy} style={{ alignSelf: 'center', width: 70, height: 70, objectFit: 'cover', borderRadius: 50, borderColor: colorSecondary, borderWidth: 1, marginRight: 20, }} />
                 </View>
             </View>
-            <View style={{ marginTop: 10 }} >
-                <Text style={[mainStyle.titleSection, { color: 'black' }]}>
-                    Leave History This Month
-                </Text>
-                <Text style={[mainStyle.subTitle, { color: 'grey', marginHorizontal: 20, marginTop: -5 }]}>
-                    Riwayat Cuti Bulan Ini
-                </Text>
+            <View style={{ marginTop: 10, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }} >
+                <FontAwesomeIcon icon={faBuildingUser} style={{ marginLeft: 20 }} size={55} />
+                <View>
+                    <Text style={[mainStyle.titleSection, { color: 'black' }]}>
+                        Leave History This Month
+                    </Text>
+                    <Text style={[mainStyle.subTitle, { color: colorPrimary, marginLeft: 20, marginTop: -10 }]}>
+                        Riwayat Cuti Bulan Ini
+                    </Text>
+                </View>
             </View>
             <Divider style={{ margin: 10 }} />
-            <ScrollView showsVerticalScrollIndicator={false} style={{ paddingHorizontal: 20, paddingVertical: 10, flex: 1, backgroundColor: 'white' }}>
+            <ScrollView showsVerticalScrollIndicator={false} style={{ paddingHorizontal: 20, paddingVertical: 10, flex: 1, backgroundColor: colorNegative, borderTopRightRadius: 30, borderTopLeftRadius: 30 }}>
                 {Array.from({ length: 15 }).map((_, i) => (
                     <View key={i}>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -58,7 +61,7 @@ const CutiScreen = ({ navigation }) => {
 
             <TouchableOpacity style={mainStyle.fabMain} onPress={() => navigation.push('Send Cuti')}>
                 <View style={[mainStyle.fabIcon]}>
-                    <FontAwesomeIcon icon={faPaperPlane} size={25} color='white' />
+                    <FontAwesomeIcon icon={faPaperPlane} size={25} color={colorNegative} />
                 </View>
             </TouchableOpacity>
         </View>

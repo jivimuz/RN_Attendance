@@ -1,6 +1,6 @@
 import { View, Text, StatusBar, SafeAreaView, TouchableOpacity, Image, TextInput } from 'react-native'
 import React from 'react'
-import { colorPrimary, colorSecondary2, mainStyle, themeColors } from '../../Style/style'
+import { colorNegative, colorPrimary, colorSecondary2, mainStyle, themeColors } from '../../Style/style'
 import { Login } from '../../../assets'
 
 const LoginScreen = ({ navigation }) => {
@@ -9,7 +9,7 @@ const LoginScreen = ({ navigation }) => {
             <View style={{ padding: 40, justifyContent: 'center', alignItems: 'center' }}>
                 <Image source={Login} style={{ width: 200, height: 200, objectFit: 'contain' }} />
             </View>
-            <View style={{ flex: 1, backgroundColor: 'white', borderTopLeftRadius: 50, borderTopRightRadius: 50 }}>
+            <View style={{ flex: 1, backgroundColor: colorNegative, borderTopLeftRadius: 50, borderTopRightRadius: 50 }}>
                 <View style={{ padding: 40 }}>
 
                     <Text style={{ color: 'grey', fontWeight: 'bold' }}>Username / Email:</Text>

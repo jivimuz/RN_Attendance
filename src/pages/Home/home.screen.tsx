@@ -1,10 +1,10 @@
 import { View, Text, ScrollView, ImageBackground, TouchableOpacity, RefreshControl, Image } from 'react-native'
 import React from 'react'
-import { colorPrimary, colorSecondary, colorSecondary2, mainStyle } from '../../Style/style';
+import { colorNegative, colorPrimary, colorSecondary, colorSecondary2, mainStyle } from '../../Style/style';
 import Jam from '../../Func/Jam';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
-import { BgPurple, Cepat, Cuti, Hadir, Terlambat } from '../../../assets';
+import { BgPurple, Cepat, Cuti, Dummy, Hadir, Terlambat } from '../../../assets';
 import { Divider, Badge } from 'react-native-paper';
 import { HariIni } from '../../Func/Hariini';
 // import { faBusinessTime, faUserClock, faUserInjured, faBell } from '@fortawesome/free-brands-svg-icons';
@@ -20,13 +20,16 @@ const HomeScreen = ({ navigation }) => {
             <ScrollView refreshControl={<RefreshControl onRefresh={onRefresh} />} showsVerticalScrollIndicator={false}>
                 <ImageBackground source={BgPurple} >
                     <View style={mainStyle.header}>
-                        <View style={{ flexDirection: 'row' }}>
-                            {/* <Image source={Log} style={[mainStyle.logoSplash, { alignSelf: 'center' }]} /> */}
-                            <Text></Text>
-                        </View>
+                        <TouchableOpacity style={{ flexDirection: 'row', marginLeft: 20, justifyContent: 'center', alignItems: 'center' }} onPress={() => navigation.push('Account')}>
+                            <Image source={Dummy} style={{ alignSelf: 'center', width: 50, height: 50, objectFit: 'cover', borderRadius: 50, borderWidth: 1, borderColor: colorPrimary }} />
+                            <View style={{ marginLeft: 10 }}>
+                                <Text style={{ fontWeight: "bold", fontSize: 18, color: colorPrimary }}>Entis Sutisna</Text>
+                                <Text style={{ fontWeight: "bold", fontSize: 12, color: 'black' }}>41215303</Text>
+                            </View>
+                        </TouchableOpacity>
                         <View style={{ flexDirection: 'row', position: 'relative', marginRight: 20 }}>
                             <TouchableOpacity style={{ alignSelf: 'center', marginBottom: 10 }} onPress={() => navigation.push('Notification')}>
-                                <FontAwesomeIcon icon={faBell} size={28} color='white' />
+                                <FontAwesomeIcon icon={faBell} size={28} color={colorNegative} />
                                 <Badge style={{ marginTop: -30 }}>3</Badge>
                             </TouchableOpacity>
 
@@ -74,7 +77,7 @@ const HomeScreen = ({ navigation }) => {
 
                                         <View style={{ marginTop: 20 }}>
                                             <TouchableOpacity style={{ backgroundColor: 'gold', padding: 10, borderRadius: 30, ...mainStyle.shadow }} onPress={() => navigation.push('Absensi')}>
-                                                <Text style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center', color: 'white' }}>Absensi</Text>
+                                                <Text style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center', color: colorNegative }}>Absensi</Text>
                                             </TouchableOpacity>
                                         </View>
                                     </View>
@@ -109,7 +112,7 @@ const HomeScreen = ({ navigation }) => {
 
                     </ScrollView>
                 </View>
-                <View style={{ marginTop: 20 }}>
+                <View>
                     <Text style={[mainStyle.titleSection, { color: 'black' }]}>
                         This Month Summary
                     </Text>
@@ -120,7 +123,7 @@ const HomeScreen = ({ navigation }) => {
                         <View style={[mainStyle.iconContainer, mainStyle.shadow, { marginBottom: 10 }]}>
                             <View style={{ width: 50, height: 50 }}>
                                 <Image source={Hadir} style={{ width: 50, height: 50 }} />
-                                <Badge style={{ marginLeft: -10, marginTop: -50, backgroundColor: 'green', color: 'white' }}>23</Badge>
+                                <Badge style={{ marginLeft: -10, marginTop: -50, backgroundColor: 'green', color: colorNegative }}>23</Badge>
                             </View>
                             <Text style={mainStyle.textSmall}>Hadir</Text>
                         </View>
@@ -128,7 +131,7 @@ const HomeScreen = ({ navigation }) => {
                         <View style={[mainStyle.iconContainer, mainStyle.shadow, { marginBottom: 10 }]}>
                             <View style={{ width: 50, height: 50 }}>
                                 <Image source={Cuti} style={{ width: 50, height: 50 }} />
-                                <Badge style={{ marginLeft: -10, marginTop: -50, backgroundColor: 'red', color: 'white' }}>1</Badge>
+                                <Badge style={{ marginLeft: -10, marginTop: -50, backgroundColor: 'red', color: colorNegative }}>1</Badge>
                             </View>
                             <Text style={mainStyle.textSmall}>Absen</Text>
                         </View>
@@ -136,7 +139,7 @@ const HomeScreen = ({ navigation }) => {
                         <View style={[mainStyle.iconContainer, mainStyle.shadow, { marginBottom: 10 }]}>
                             <View style={{ width: 50, height: 50 }}>
                                 <Image source={Terlambat} style={{ width: 50, height: 50 }} />
-                                <Badge style={{ marginLeft: -10, marginTop: -50, backgroundColor: 'orange', color: 'white' }}>2</Badge>
+                                <Badge style={{ marginLeft: -10, marginTop: -50, backgroundColor: 'orange', color: colorNegative }}>2</Badge>
                             </View>
                             <Text style={mainStyle.textSmall}>Terlambat</Text>
                         </View>
@@ -144,14 +147,14 @@ const HomeScreen = ({ navigation }) => {
                         <View style={[mainStyle.iconContainer, mainStyle.shadow, { marginBottom: 10 }]}>
                             <View style={{ width: 50, height: 50 }}>
                                 <Image source={Cepat} style={{ width: 50, height: 50 }} />
-                                <Badge style={{ marginLeft: -10, marginTop: -50, backgroundColor: 'orange', color: 'white' }}>4</Badge>
+                                <Badge style={{ marginLeft: -10, marginTop: -50, backgroundColor: 'orange', color: colorNegative }}>4</Badge>
                             </View>
                             <Text style={mainStyle.textSmall}>Pulang Cepat</Text>
                         </View>
 
                     </View>
                 </View>
-                <View style={{ marginTop: 20 }}>
+                <View >
                     <Text style={[mainStyle.titleSection, { color: 'black' }]}>
                         Permit
                     </Text>
@@ -160,12 +163,12 @@ const HomeScreen = ({ navigation }) => {
                     </Text>
                     <View style={{ marginHorizontal: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 10 }}>
                         <TouchableOpacity style={[mainStyle.iconContainer2, mainStyle.shadow, { marginBottom: 10 }]} onPress={() => navigation.push('Cuti')}>
-                            <FontAwesomeIcon icon={faUserClock} size={35} color={'white'} style={{ margin: 5 }} />
+                            <FontAwesomeIcon icon={faUserClock} size={35} color={colorNegative} style={{ margin: 5 }} />
                             <Text style={mainStyle.textSmallWhite}>Cuti</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity style={[mainStyle.iconContainer2, mainStyle.shadow, { marginBottom: 10 }]} onPress={() => navigation.push('Sakit')}>
-                            <FontAwesomeIcon icon={faUserInjured} size={35} color={'white'} style={{ margin: 5 }} />
+                            <FontAwesomeIcon icon={faUserInjured} size={35} color={colorNegative} style={{ margin: 5 }} />
                             <Text style={mainStyle.textSmallWhite}>Sakit</Text>
                         </TouchableOpacity>
 
@@ -178,7 +181,6 @@ const HomeScreen = ({ navigation }) => {
 
                     </View>
                 </View>
-                <View style={{ height: 50 }} />
             </ScrollView >
         </>
 

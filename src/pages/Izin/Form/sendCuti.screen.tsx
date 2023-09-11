@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { colorPrimary, colorSecondary, mainStyle } from '../../../Style/style'
+import { colorNegative, colorPrimary, colorSecondary, mainStyle } from '../../../Style/style'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { Divider } from 'react-native-paper'
@@ -8,7 +8,7 @@ import { TextInput } from 'react-native-paper';
 
 const SendCutiScreen = ({ navigation }) => {
     return (
-        <View style={{ flex: 1, backgroundColor: 'white' }}>
+        <View style={{ flex: 1, backgroundColor: colorNegative }}>
             <View style={mainStyle.header}>
                 <View style={{ flexDirection: 'row', position: 'relative', marginBottom: 5 }}>
                     <TouchableOpacity style={{ alignSelf: 'center', backgroundColor: colorSecondary, padding: 15, borderTopRightRadius: 30, borderBottomRightRadius: 30 }} onPress={() => navigation.pop()}>
@@ -22,7 +22,7 @@ const SendCutiScreen = ({ navigation }) => {
                 <TextInput
                     label="Jenis Cuti"
                     mode='outlined'
-                    style={{ backgroundColor: 'white' }}
+                    style={{ backgroundColor: colorNegative }}
                     textColor='black'
                     outlineColor={colorSecondary}
                     activeOutlineColor={colorPrimary}
@@ -35,7 +35,7 @@ const SendCutiScreen = ({ navigation }) => {
                     <TextInput
                         label="Dari"
                         mode='outlined'
-                        style={{ backgroundColor: 'white', marginTop: 10, width: '49%' }}
+                        style={{ backgroundColor: colorNegative, marginTop: 10, width: '49%' }}
                         textColor='black'
                         outlineColor={colorSecondary}
                         activeOutlineColor={colorPrimary}
@@ -46,7 +46,7 @@ const SendCutiScreen = ({ navigation }) => {
                     <TextInput
                         label="Sampai"
                         mode='outlined'
-                        style={{ backgroundColor: 'white', marginTop: 10, width: '49%' }}
+                        style={{ backgroundColor: colorNegative, marginTop: 10, width: '49%' }}
                         textColor='black'
                         outlineColor={colorSecondary}
                         activeOutlineColor={colorPrimary}
@@ -59,7 +59,7 @@ const SendCutiScreen = ({ navigation }) => {
                     multiline
                     label="Dari"
                     mode='outlined'
-                    style={{ backgroundColor: 'white', marginTop: 10, height: 150 }}
+                    style={{ backgroundColor: colorNegative, marginTop: 10, height: 150 }}
                     textColor='black'
                     outlineColor={colorSecondary}
                     activeOutlineColor={colorPrimary}

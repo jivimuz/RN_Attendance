@@ -1,6 +1,6 @@
 import { View, Image, TouchableOpacity, Text, ScrollView } from 'react-native'
 import React from 'react'
-import { colorDanger, colorPrimary, colorSecondary, colorSecondary2, colorSuccess, mainStyle } from '../../Style/style'
+import { colorDanger, colorNegative, colorPrimary, colorSecondary, colorSecondary2, colorSuccess, mainStyle } from '../../Style/style'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faChevronLeft, faClock, faBusinessTime } from '@fortawesome/free-solid-svg-icons';
 import { Dummy } from '../../../assets';
@@ -9,7 +9,7 @@ import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 
 const AbsensiScreen = ({ navigation }) => {
     return (
-        <View style={{ flex: 1, backgroundColor: 'white' }}>
+        <View style={{ flex: 1, backgroundColor: colorNegative }}>
             <View style={mainStyle.header}>
                 <View style={{ flexDirection: 'row', position: 'relative', marginBottom: 5 }}>
                     <TouchableOpacity style={{ alignSelf: 'center', backgroundColor: colorSecondary, padding: 15, borderTopRightRadius: 30, borderBottomRightRadius: 30, ...mainStyle.shadow, }} onPress={() => navigation.pop()}>
@@ -36,9 +36,9 @@ const AbsensiScreen = ({ navigation }) => {
                 </View>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
                     <View style={{ backgroundColor: colorSuccess, width: '49%', height: 'auto', borderRadius: 20, padding: 10, alignItems: 'center' }} >
-                        <FontAwesomeIcon icon={faClock} size={35} color={'white'} />
-                        <Text style={{ color: 'white', marginTop: 10 }}>Waktu Hadir</Text>
-                        <Text style={{ color: 'white', ...mainStyle.title }}>08:30</Text>
+                        <FontAwesomeIcon icon={faClock} size={35} color={colorNegative} />
+                        <Text style={{ color: colorNegative, marginTop: 10 }}>Waktu Hadir</Text>
+                        <Text style={{ color: colorNegative, ...mainStyle.title }}>08:30</Text>
                     </View>
                     <View style={{ backgroundColor: '#E0E0E0', width: '49%', height: 'auto', borderRadius: 20, padding: 10, alignItems: 'center' }} >
                         <FontAwesomeIcon icon={faClock} size={35} color={'grey'} />
@@ -77,7 +77,7 @@ const AbsensiScreen = ({ navigation }) => {
 
             <View style={{ alignItems: 'center', marginTop: 30 }}>
                 <Text style={{ color: colorPrimary, fontWeight: 'bold', fontSize: 20 }}>Menuju Waktu Pulang</Text>
-                <TouchableOpacity style={{ backgroundColor: 'white', borderRadius: 125, marginTop: 20, ...mainStyle.shadow }}>
+                <TouchableOpacity style={{ backgroundColor: colorNegative, borderRadius: 125, marginTop: 20, ...mainStyle.shadow }}>
                     <CountdownCircleTimer
                         isPlaying
                         duration={3000}
