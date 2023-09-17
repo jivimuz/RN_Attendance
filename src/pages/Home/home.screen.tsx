@@ -3,12 +3,12 @@ import React from 'react'
 import { colorNegative, colorPrimary, colorSecondary, colorSecondary2, mainStyle } from '../../Style/style';
 import Jam from '../../Func/Jam';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
+import { faCalendarDays, faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import { BgPurple, Cepat, Cuti, Dummy, Hadir, Terlambat } from '../../../assets';
 import { Divider, Badge } from 'react-native-paper';
-import { HariIni } from '../../Func/Hariini';
 // import { faBusinessTime, faUserClock, faUserInjured, faBell } from '@fortawesome/free-brands-svg-icons';
 import { faBusinessTime, faUserClock, faUserInjured, faBell } from '@fortawesome/free-solid-svg-icons';
+import { HariIni } from '../../Func/Hariini';
 
 const HomeScreen = ({ navigation }) => {
     const onRefresh = () => {
@@ -19,7 +19,7 @@ const HomeScreen = ({ navigation }) => {
         <>
             <ScrollView refreshControl={<RefreshControl onRefresh={onRefresh} />} showsVerticalScrollIndicator={false}>
                 <ImageBackground source={BgPurple} >
-                    <View style={mainStyle.header}>
+                    <View style={[mainStyle.header]}>
                         <TouchableOpacity style={{ flexDirection: 'row', marginLeft: 20, justifyContent: 'center', alignItems: 'center' }} onPress={() => navigation.push('Account')}>
                             <Image source={Dummy} style={{ alignSelf: 'center', width: 50, height: 50, objectFit: 'cover', borderRadius: 50, borderWidth: 1, borderColor: colorPrimary }} />
                             <View style={{ marginLeft: 10 }}>
@@ -32,7 +32,6 @@ const HomeScreen = ({ navigation }) => {
                                 <FontAwesomeIcon icon={faBell} size={28} color={colorNegative} />
                                 <Badge style={{ marginTop: -30 }}>3</Badge>
                             </TouchableOpacity>
-
                         </View>
                     </View>
                     <View style={{ height: 150 }}>
@@ -96,22 +95,23 @@ const HomeScreen = ({ navigation }) => {
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{ marginHorizontal: 20, flexDirection: 'row', marginTop: 10 }}>
                         <View style={[mainStyle.scheduleContainer, { margin: 10 }]}>
                             <FontAwesomeIcon icon={faBusinessTime} size={24} color={colorPrimary} />
-                            <Text style={[mainStyle.titleSection, { color: colorPrimary, marginTop: 0 }]}>08:00 - 17:00</Text>
+                            <Text style={[mainStyle.titleSection2, { color: colorPrimary, marginTop: 0 }]}>08:00 - 17:00</Text>
                             <Text style={[mainStyle.textSmall, { marginTop: -10 }]}>Senin - Rabu</Text>
                         </View>
                         <View style={[mainStyle.scheduleContainer, { margin: 10 }]}>
                             <FontAwesomeIcon icon={faBusinessTime} size={24} color={colorPrimary} />
-                            <Text style={[mainStyle.titleSection, { color: colorPrimary, marginTop: 0 }]}>09:00 - 17:00</Text>
+                            <Text style={[mainStyle.titleSection2, { color: colorPrimary, marginTop: 0 }]}>09:00 - 17:00</Text>
                             <Text style={[mainStyle.textSmall, { marginTop: -10 }]}>Kamis</Text>
                         </View>
                         <View style={[mainStyle.scheduleContainer, { margin: 10 }]}>
                             <FontAwesomeIcon icon={faBusinessTime} size={24} color={colorPrimary} />
-                            <Text style={[mainStyle.titleSection, { color: colorPrimary, marginTop: 0 }]}>08:00 - 13:00</Text>
+                            <Text style={[mainStyle.titleSection2, { color: colorPrimary, marginTop: 0 }]}>08:00 - 13:00</Text>
                             <Text style={[mainStyle.textSmall, { marginTop: -10 }]}>Jumat</Text>
                         </View>
 
                     </ScrollView>
                 </View>
+
                 <View>
                     <Text style={[mainStyle.titleSection, { color: 'black' }]}>
                         This Month Summary
@@ -119,6 +119,8 @@ const HomeScreen = ({ navigation }) => {
                     <Text style={[mainStyle.subTitle, { color: 'grey', marginHorizontal: 20, marginTop: -5 }]}>
                         Rekap Bulan Ini
                     </Text>
+
+
                     <View style={{ marginHorizontal: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 20 }}>
                         <View style={[mainStyle.iconContainer, mainStyle.shadow, { marginBottom: 10 }]}>
                             <View style={{ width: 50, height: 50 }}>
@@ -151,8 +153,15 @@ const HomeScreen = ({ navigation }) => {
                             </View>
                             <Text style={mainStyle.textSmall}>Pulang Cepat</Text>
                         </View>
-
                     </View>
+                    <TouchableOpacity onPress={() => navigation.push('Riwayat')} style={{ marginHorizontal: 20, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: 5 }}>
+                        <View style={[mainStyle.badgeContainer, mainStyle.shadow, { marginBottom: 10 }]}>
+                            <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
+                                <FontAwesomeIcon icon={faCalendarDays} size={25} color='white' />
+                            </View>
+                            <Text style={{ color: colorNegative, fontWeight: 'bold', fontSize: 20, marginLeft: 20 }}>Lihat Riwayat</Text>
+                        </View>
+                    </TouchableOpacity>
                 </View>
                 <View >
                     <Text style={[mainStyle.titleSection, { color: 'black' }]}>
@@ -175,12 +184,13 @@ const HomeScreen = ({ navigation }) => {
                         <View style={[mainStyle.shadow, {
                             marginBottom: 10, height: 80, width: 160, backgroundColor: '#E0E0E0', justifyContent: 'center', alignItems: 'center', borderRadius: 10,
                         }]}>
-                            <Text style={{ fontSize: 35, color: colorPrimary, fontWeight: 'bold' }} >3</Text>
+                            <Text style={{ fontSize: 35, color: colorPrimary, fontWeight: 'bold' }} >5</Text>
                             <Text style={mainStyle.textSmall}>Jumlah Izin</Text>
                         </View>
 
                     </View>
                 </View>
+                <View style={{ height: 20 }} />
             </ScrollView >
         </>
 

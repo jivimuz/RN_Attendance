@@ -42,7 +42,7 @@ const CutiScreen = ({ navigation }) => {
             </View>
             <Divider style={{ margin: 10 }} />
             <ScrollView showsVerticalScrollIndicator={false} style={{ paddingHorizontal: 20, paddingVertical: 10, flex: 1, backgroundColor: colorNegative, borderTopRightRadius: 30, borderTopLeftRadius: 30 }}>
-                {Array.from({ length: 15 }).map((_, i) => (
+                {Array.from({ length: 2 }).map((_, i) => (
                     <View key={i}>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                             <Text style={{ color: colorPrimary, fontWeight: 'bold' }}>2023-07-04</Text>

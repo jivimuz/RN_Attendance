@@ -1,11 +1,11 @@
-import { View, Text, StatusBar, SafeAreaView, TouchableOpacity, Image, TextInput } from 'react-native'
+import { View, Text, StatusBar, SafeAreaView, TouchableOpacity, Image, TextInput, ImageBackground } from 'react-native'
 import React from 'react'
 import { colorNegative, colorPrimary, colorSecondary2, mainStyle, themeColors } from '../../Style/style'
-import { Login } from '../../../assets'
+import { BgPurple3, Login } from '../../../assets'
 
 const LoginScreen = ({ navigation }) => {
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: themeColors }}>
+        <ImageBackground source={BgPurple3} style={{ flex: 1, backgroundColor: themeColors }}>
             <View style={{ padding: 40, justifyContent: 'center', alignItems: 'center' }}>
                 <Image source={Login} style={{ width: 200, height: 200, objectFit: 'contain' }} />
             </View>
@@ -25,7 +25,7 @@ const LoginScreen = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
             </View>
-        </SafeAreaView >
+        </ImageBackground>
     )
 }
 

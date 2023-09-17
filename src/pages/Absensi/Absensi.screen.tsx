@@ -1,5 +1,5 @@
 import { View, Image, TouchableOpacity, Text, ScrollView } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { colorDanger, colorNegative, colorPrimary, colorSecondary, colorSecondary2, colorSuccess, mainStyle } from '../../Style/style'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faChevronLeft, faClock, faBusinessTime } from '@fortawesome/free-solid-svg-icons';
@@ -8,6 +8,29 @@ import { TglHariIni } from '../../Func/Hariini';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 
 const AbsensiScreen = ({ navigation }) => {
+    const [duration, setDuration] = useState(0);
+    const [initialRemainingTime, setInitialRemainingTime] = useState(0);
+    const [isPlay, setIsplay] = useState(false);
+
+    const hitungDurasi = (jamDatang, jamPulang) => {
+        const datang = parseInt(jamDatang.split(':')[0], 10) * 3600 + parseInt(jamDatang.split(':')[1], 10) * 60;
+        const pulang = parseInt(jamPulang.split(':')[0], 10) * 3600 + parseInt(jamPulang.split(':')[1], 10) * 60;
+
+        const waktuSekarang = new Date();
+        const jamSekarang = (waktuSekarang.getHours() * 3600) + (waktuSekarang.getMinutes() * 60) + waktuSekarang.getSeconds();
+
+        const initialRemaining = jamSekarang > pulang ? 0 : pulang - jamSekarang;
+
+        setDuration(Number(pulang - datang));
+        setInitialRemainingTime(Number(initialRemaining));
+        setIsplay(true)
+    };
+
+
+    useEffect(() => {
+        hitungDurasi("08:30", "17:00");
+    }, []);
+
     return (
         <View style={{ flex: 1, backgroundColor: colorNegative }}>
             <View style={mainStyle.header}>
@@ -58,17 +81,17 @@ const AbsensiScreen = ({ navigation }) => {
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{ marginHorizontal: 20, flexDirection: 'row', marginTop: 10 }}>
                     <View style={[mainStyle.scheduleContainer2, { margin: 10 }]}>
                         <FontAwesomeIcon icon={faBusinessTime} size={24} color={'grey'} />
-                        <Text style={[mainStyle.titleSection, { color: 'grey', marginTop: 0 }]}>08:00 - 17:00</Text>
+                        <Text style={[mainStyle.titleSection2, { color: 'grey', marginTop: 0 }]}>08:00 - 17:00</Text>
                         <Text style={[mainStyle.textSmall, { marginTop: -10 }]}>Senin - Rabu</Text>
                     </View>
                     <View style={[mainStyle.scheduleContainer2, { margin: 10 }]}>
                         <FontAwesomeIcon icon={faBusinessTime} size={24} color={'grey'} />
-                        <Text style={[mainStyle.titleSection, { color: 'grey', marginTop: 0 }]}>09:00 - 17:00</Text>
+                        <Text style={[mainStyle.titleSection2, { color: 'grey', marginTop: 0 }]}>09:00 - 17:00</Text>
                         <Text style={[mainStyle.textSmall, { marginTop: -10 }]}>Kamis</Text>
                     </View>
                     <View style={[mainStyle.scheduleContainer2, { margin: 10 }]}>
                         <FontAwesomeIcon icon={faBusinessTime} size={24} color={'grey'} />
-                        <Text style={[mainStyle.titleSection, { color: 'grey', marginTop: 0 }]}>08:00 - 13:00</Text>
+                        <Text style={[mainStyle.titleSection2, { color: 'grey', marginTop: 0 }]}>08:00 - 13:00</Text>
                         <Text style={[mainStyle.textSmall, { marginTop: -10 }]}>Jumat</Text>
                     </View>
 
@@ -79,9 +102,8 @@ const AbsensiScreen = ({ navigation }) => {
                 <Text style={{ color: colorPrimary, fontWeight: 'bold', fontSize: 20 }}>Menuju Waktu Pulang</Text>
                 <TouchableOpacity style={{ backgroundColor: colorNegative, borderRadius: 125, marginTop: 20, ...mainStyle.shadow }}>
                     <CountdownCircleTimer
-                        isPlaying
-                        duration={3000}
-                        initialRemainingTime={2500}
+                        isPlaying={isPlay}
+                        duration={initialRemainingTime}
                         colors={colorSecondary}
                         strokeWidth={10}
                         trailStrokeWidth={10}

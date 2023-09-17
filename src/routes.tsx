@@ -13,6 +13,9 @@ import SendSakitScreen from './pages/Izin/Form/sendSakit.screen';
 import NotificationScreen from './pages/Extra/Notification.screen';
 import AccountScreen from './pages/Account/Account.screen';
 import ProfileScreen from './pages/Account/Profile/Profile.screen';
+import RiwayatScreen from './pages/Absensi/Riwayat.screen';
+import PasswordScreen from './pages/Account/Profile/Password.screen';
+import CredentialSreen from './pages/Extra/Credential.screen';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,14 +24,16 @@ const Route = () => {
         <Stack.Navigator >
             <Stack.Screen name='Splash' options={{ headerShown: false, statusBarColor: colorSecondary }} component={SplashScreen} />
 
-            <Stack.Screen name='Login' options={{ headerShown: false, statusBarColor: colorPrimary }} component={LoginScreen} />
+            <Stack.Screen name='Login' options={{ headerShown: false, statusBarColor: colorSecondary }} component={LoginScreen} />
 
             <Stack.Screen name='Home' options={{ headerShown: false, statusBarColor: colorSecondary }} component={HomeScreen} />
 
             <Stack.Screen name='Account' options={{ headerShown: false, statusBarColor: colorNegative }} component={AccountScreen} />
             <Stack.Screen name='Profile' options={{ headerShown: false, statusBarColor: colorNegative }} component={ProfileScreen} />
+            <Stack.Screen name='Password' options={{ headerShown: false, statusBarColor: colorNegative }} component={PasswordScreen} />
 
             <Stack.Screen name='Absensi' options={{ headerShown: false, statusBarColor: colorNegative }} component={AbsensiScreen} />
+            <Stack.Screen name='Riwayat' options={{ headerShown: false, statusBarColor: colorPrimary }} component={RiwayatScreen} />
 
             <Stack.Screen name='Cuti' options={{ headerShown: false, statusBarColor: colorSecondary }} component={CutiScreen} />
             <Stack.Screen name='Sakit' options={{ headerShown: false, statusBarColor: colorSecondary }} component={SakitScreen} />
@@ -36,6 +41,7 @@ const Route = () => {
             <Stack.Screen name='Send Sakit' options={{ headerShown: false, statusBarColor: colorNegative }} component={SendSakitScreen} />
 
             <Stack.Screen name='Notification' options={{ headerShown: false, statusBarColor: colorNegative }} component={NotificationScreen} />
+            <Stack.Screen name='Credentials' options={{ headerShown: false, statusBarColor: colorPrimary }} component={CredentialSreen} />
 
 
         </Stack.Navigator>

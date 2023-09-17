@@ -1,12 +1,11 @@
-import { View, Text, Image, TouchableOpacity, StatusBar } from 'react-native'
+import { View, Text, Image, TouchableOpacity, ImageBackground } from 'react-native'
 import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
 import { colorPrimary, colorSecondary, mainStyle, themeColors } from '../Style/style'
-import { Welcome } from '../../assets'
+import { BgPurple3, Welcome } from '../../assets'
 
 const SplashScreen = ({ navigation }) => {
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: colorSecondary }}>
+        <ImageBackground source={BgPurple3} style={{ flex: 1, backgroundColor: colorSecondary }}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <Text style={{ color: themeColors, fontWeight: 'bold', fontSize: 25 }}>Selamat Datang</Text>
             </View>
@@ -18,7 +17,7 @@ const SplashScreen = ({ navigation }) => {
                     <Text style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center' }}>Let's Go</Text>
                 </TouchableOpacity>
             </View>
-        </SafeAreaView>
+        </ImageBackground>
     )
 }
 

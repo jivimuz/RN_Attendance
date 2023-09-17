@@ -10,6 +10,7 @@ export const colorNegative = 'white'
 export const colorDanger = 'rgb(203, 20, 20)'
 export const colorSuccess = 'rgb(12, 152, 45)'
 export const colorWarning = 'rgb(255, 180, 51)'
+export const colorInfo = '#FF007F'
 
 export const mainStyle = StyleSheet.create({
     contentCenter: {
@@ -38,6 +39,11 @@ export const mainStyle = StyleSheet.create({
     },
     titleSection: {
         marginLeft: 20,
+        marginVertical: 10,
+        fontWeight: "bold",
+        fontSize: 18
+    },
+    titleSection2: {
         marginVertical: 10,
         fontWeight: "bold",
         fontSize: 18
@@ -148,6 +154,16 @@ export const mainStyle = StyleSheet.create({
         backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
+        borderRadius: 10,
+    },
+    badgeContainer: {
+        padding: 10,
+        height: 50,
+        width: '100%',
+        backgroundColor: colorPrimary,
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
         borderRadius: 10,
     },
     iconContainer2: {
